@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'mechanize'
 
+include 'parse_course'
 #a = WWW::Mechanize.new { |agent| agent.user_agent_alias = 'Mac Safari' }
 a = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Safari' }
 
@@ -30,6 +31,7 @@ states.each do |state|
       puts "****** course: #{course_url}"
       a.get(course_url)
       puts a.page.search("div#block-course-course_scorecard table.course-tees-summary").text
+      
     end
     
     puts
